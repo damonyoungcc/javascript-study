@@ -99,3 +99,97 @@ parseInt(11);
 parseInt(14);
 console.log(count);  //3
 console.log(oldParseInt);  //function parseInt() { [native code] }*/
+
+
+
+//====================================================================
+//2.0 --高阶函数
+//js中函数的参数能接受变量，也能接受函数，这种函数就叫做高阶函数
+/*function add(x, y, f) {
+    return f(x) + f(y);
+}
+console.log(add(3, -4, Math.abs));  //7*/
+//上面就是把f当做一个函数传入
+//函数执行的过程是这样的：
+/*var x = 3;
+var y = -4;
+f = Math.abs;
+f(x) + f(y) ==> Math.abs(x) + Math.abs(y);
+return 7;*/
+
+//2.1 --map()方法定义在数组Array上，调用Array的map方法，并且传入自己的函数，就可以得到一个新的Array
+/*var arr = [1, 1, 2, 3, 5, 8, 9, 12, 14];
+function pow(x) {
+    return x * x;
+}
+console.log(arr.map(pow));  //[1, 1, 4, 9, 25, 64, 81, 144, 196]*/
+//map里只要传入要调用函数的名字就可以了。即函数对象本身
+
+//也可以写一个循环实现上述功能
+/*var arr = [1, 1, 2, 3, 5, 8, 9, 12, 14];
+var arr1 = [];
+function pow(){
+    for(var i = 0; i < arr.length; i++){
+        var result = arr[i] * arr [i];
+        arr1.push(result);
+    }
+}
+pow();
+console.log(arr1);  //[1, 1, 4, 9, 25, 64, 81, 144, 196]*/
+//高阶函数就是把运算规则抽象化了。
+
+//2.2 --利用map()函数把数组的元素转化成字符串
+/*var arr = [1, 1, 2, 3, 5, 8, 13];
+console.log(arr.map(String));  //["1", "1", "2", "3", "5", "8", "13"]*/
+//map()方法是无论怎么对数组操作都会返回一个数组。
+
+//2.3 --reduce的用法
+//Array的reduce()方法把一个函数作用在数组的各个元素上，这个函数必须接受两个参数，reduce把结果继续与数组的下一个传入参数进行累积计算
+//求数组各个元素的乘积
+/*var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function foo(x, y) {
+    return x * y;
+}
+console.log(arr.reduce(foo));  //3628800
+console.log(arr.reduce(
+    function foo1(x, y) {
+        return x + y;
+    }
+));  //55
+
+//把数组[1,2,3,4,5,7]变成123457
+var arr1 = [1, 2, 3, 4, 5, 7];
+console.log(arr1.reduce(function (x, y) {
+    return x * 10 + y;
+}));     //123457*/
+
+//2.4 --reduce的练习， 把一个数字字符串，转化为数字，不用内置的parseInt()函数
+//把字符串'12345'先变成[1,2,3,4,5],转换成'1-2-3-4-5',然后转换成数字12345
+/*var str = '12345';
+var arr2 = str.split('');  //["1", "2", "3", "4", "5"]
+function num(x){
+   return Number(x);
+}
+console.log(arr2.map(num));  //[1,2,3,4,5]
+console.log(arr2);  //["1", "2", "3", "4", "5"]
+console.log(arr2.join('-'));  //'1-2-3-4-5'
+console.log(arr2.map(num).reduce(function(x,y){
+        return x*10 + y;
+    }
+));  //12345*/
+
+//2.5 --用户输入不规范，输入['adam','LISA','barT'],经转换输出['Adam','Lisa','Bart']
+var arr = ['adam','LISA','barT'];
+function trans(x){  //'adam'
+    return x.toUpperCase()[0]+ x.toLowerCase().substring(1);
+}
+console.log(arr.map(trans));
+
+//2.6 --利用map()把字符串变成整数 ['1','2','3']变成[1,2,3]
+var arr = ['1','2','3'];
+var r;
+r = arr.map(function(x){
+    return parseInt(x);
+});
+// r = arr.map(parseInt);
+console.log('[' + r[0]+','+r[1]+','+r[2]+']');
