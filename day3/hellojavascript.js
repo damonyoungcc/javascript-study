@@ -179,17 +179,149 @@ console.log(arr2.map(num).reduce(function(x,y){
 ));  //12345*/
 
 //2.5 --用户输入不规范，输入['adam','LISA','barT'],经转换输出['Adam','Lisa','Bart']
-var arr = ['adam','LISA','barT'];
+/*var arr = ['adam','LISA','barT'];
 function trans(x){  //'adam'
     return x.toUpperCase()[0]+ x.toLowerCase().substring(1);
 }
-console.log(arr.map(trans));
+console.log(arr.map(trans));*/
 
 //2.6 --利用map()把字符串变成整数 ['1','2','3']变成[1,2,3]
-var arr = ['1','2','3'];
+/*var arr = ['1','2','3'];
 var r;
 r = arr.map(function(x){
     return parseInt(x);
 });
 // r = arr.map(parseInt);
-console.log('[' + r[0]+','+r[1]+','+r[2]+']');
+console.log('[' + r[0]+','+r[1]+','+r[2]+']');*/
+
+//3.0 --总结，字符串的操作
+//3.1 --转义字符
+// console.log('I\'m OK!');
+//3.2 --多行字符串
+/*console.log(`这是
+多行
+字符串`);*/
+//3.3 --模板字符串
+/*var name = 'yang';
+var age = 18;
+console.log(`你好，${name},你今年${age}岁了`);*/
+
+//==============操作字符串==========================
+//3.4 --获取字符串的长度
+/*var str = 'hello javascript';
+console.log(str.length);    //16
+//获取指定索引的字符串
+console.log(str[4]);  //o*/
+//=========重要：字符串是不可变的
+//3.5 --字符串是不可变的，对字符串的某个索引赋值，不会报错但是也没有任何效果
+/*var str = 'hello';
+str[1] = 'h';
+console.log(str);  //hello*/
+
+//3.6 --toUpperCase()
+/*var str = 'hello javascript';
+console.log(str.toUpperCase());  //HELLO JAVASCRIPT*/
+//3.7 --toLowerCase()
+/*var str = 'Hello World';
+console.log(str.toLowerCase());  //hello world
+console.log(str);    //原字符串不改变：Hello World*/
+//3.8 --indexOf()
+/*var str = 'Hello World';
+console.log(str.indexOf('llo'));  //2*/
+//3.9 --substring()返回指定区间的字符串
+/*var str1 = 'hello,world';
+console.log(str1.substring(1,4));  //ell
+console.log(str1);
+console.log(str1.substring(3));    //lo,world*/
+//3.10 --split()方法
+/*var str = '12345';
+console.log(str.split(''));  //["1", "2", "3", "4", "5"]*/
+
+//移除字符串中的空格
+//var names = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand ";
+//console.log(names);
+//var re = /\s*;\s*/;
+//console.log(names.split(re));  
+//["Harry Trump", "Fred Barney", "Helen Rigby", "Bill Abel", "Chris Hand "]
+//4.0============数组===================
+/*var arr = [1,2,'hello',false];
+console.log(arr.length);    //4
+arr.length = 5;
+console.log(arr);    //[1, 2, "hello", false, undefined]  改变了数组
+arr.length = 2;
+console.log(arr);    //[1, 2]  改变了数组
+arr[0] = 'hello';
+console.log(arr);    //["hello", 2] 改变了数组*/
+
+//4.1 --indexOf()
+/*var arr = [1,2,'hello','world'];
+console.log(arr.indexOf('hello'));   //2
+console.log(arr);  //一个简单的查找是不会改变数组
+console.log(arr.indexOf(3));  //不存在返回-1
+console.log(arr);  //此时数组还是没有被改变的。*/
+
+//4.2 --slice();
+/*var arr = [1,2,3,'hello','javascript'];
+console.log(arr.slice(1,2));  //从索引1开始截取到索引2，左包右不包，返回截取的数组[2]
+console.log(arr);  //arr没有发生改变
+console.log(arr.slice(1));    //[2, 3, "hello", "javascript"]
+console.log(arr.slice());  //不传参数就完全输出 [1, 2, 3, "hello", "javascript"]*/
+
+//4.3 --push()和pop()
+/*var arr = [1,2,3,'hello','world'];
+console.log(arr.push('hello'));  //在末尾添加元素，返回push后的数组的长度
+console.log(arr);    //改变了数组 [1, 2, 3, "hello", "world", "hello"]
+console.log(arr.pop());  //删除末尾的一个元素  返回删除的元素hello
+console.log(arr);    //改变了数组[1, 2, 3, "hello", "world"]
+console.log(arr.pop(2,3));  //传入参数没有意义，依然删除最后一个元素并且返回world*/
+
+//4.4 ---shift()和unshift()方法
+//shift()往数组的头部删除一个元素
+//unshift()往数组的头部添加一个元素
+/*var arr = [1,2,3,'hello',false];
+console.log(arr.shift());  //1返回从头部删除的元素
+console.log(arr.shift(3));
+console.log(arr);  //[2, 3, "hello", false]
+console.log(arr.unshift('hello'));  //4返回添加这个元素后的数组的长度
+console.log(arr);  //改变了数组["hello", 3, "hello", false]*/
+
+//4.5 --sort()方法，对数组进行排序，后面高阶函数可以看到，可以用sort()方法，对数组进行指定的排序
+
+//4.6 --reverse()把对数组的元素掉个个
+/*var arr = [1,2,3,4];
+console.log(arr.reverse());  //返回掉个个之后的数组 [4,3,2,1]
+console.log(arr);       //原数组改变  [4,3,2,1]
+*/
+//4.7 --splice()数组的万能方法
+//从指定的索引开始删除若干元素，再从该位置添加若干元素
+/*var arr = [1,2,3,4,5,6,7,8];
+console.log(arr.splice(1,2,3));  //返回[2,3]，从索引1开始，删除两个元素，添加一个元素3  
+console.log(arr);  //数组[1, 3, 4, 5, 6, 7, 8]  
+var arr1 = [1,2,3,4,5,6,7,8];
+console.log(arr1.splice(1,0,3));  //返回删除的元素，从索引1开始，删除0个元素，添加一个元素3
+//=======注意，添加的元素是在开始索引的前面添加
+console.log(arr1);   //[1, 3, 2, 3, 4, 5, 6, 7, 8]
+//只删除不添加
+console.log(arr1.splice(2,2)); //从索引2开始，删除两个元素，返回删除的数组 [3,2]
+console.log(arr1);    //[1,3,4,5,6,7,8]*/
+
+//4.8 --concat()方法，拼接数组
+/*var arr = [1,2];
+var arr1 = ['hello','world'];
+console.log(arr.concat(arr1));  //拼接后返回一个新的数组[1, 2, "hello", "world"]
+console.log(arr);      //[1,2]
+console.log(arr1);    //['hello','world']*/
+
+//4.9 --join()
+var arr = [1,2,3,4,5,6];
+console.log(arr.join('-'));  //返回一个字符串'1-2-3-4-5-6'
+console.log(arr);    //原数组不变，还是[1,2,3,4,5,6]
+console.log(arr.join());  //'1,2,3,4,5,6'  join中不传入参数，则默认返回每个元素间加逗号的字符串
+console.log(arr.join().length);  //11
+console.log(arr.join()[1]);  //输出,号
+console.log(arr.join(''));  //如果传入的参数是空字符串，则返回字符串'123456'
+console.log(arr.join(','));  //'1,2,3,4,5,6'
+console.log(arr.splice(0,3));  //
+
+
+
