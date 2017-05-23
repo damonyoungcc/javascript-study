@@ -313,7 +313,7 @@ console.log(arr);      //[1,2]
 console.log(arr1);    //['hello','world']*/
 
 //4.9 --join()
-var arr = [1,2,3,4,5,6];
+/*var arr = [1,2,3,4,5,6];
 console.log(arr.join('-'));  //返回一个字符串'1-2-3-4-5-6'
 console.log(arr);    //原数组不变，还是[1,2,3,4,5,6]
 console.log(arr.join());  //'1,2,3,4,5,6'  join中不传入参数，则默认返回每个元素间加逗号的字符串
@@ -321,7 +321,73 @@ console.log(arr.join().length);  //11
 console.log(arr.join()[1]);  //输出,号
 console.log(arr.join(''));  //如果传入的参数是空字符串，则返回字符串'123456'
 console.log(arr.join(','));  //'1,2,3,4,5,6'
-console.log(arr.splice(0,3));  //
+console.log(arr.splice(0,3));  //*/
 
+//5.0 --高阶函数ß
+/*function add(x, y, f) {
+    return f(x) + f(y);
+}
+console.log(add(-5, 6, Math.abs));  //11*/
 
+//5.1 --高阶的map()方法
+//map()方法定义在数组中，这样可以通过数组调用map()方法
+/*var arr = [1, 2, 3, 4];
+function pow(x) {
+    return x * x;
+}
+console.log(arr.map(pow));  //[1,4,9,16]
 
+//把arr中所有的数字转化成字符串
+var arr1 = [1, 2, 3, 4, 5, 6];
+console.log(arr1.map(String));  //["1", "2", "3", "4", "5", "6"]*/
+
+//5.2 --reduce()方法
+//reduce()方法把一个函数作用在数组上，这个函数接收两个参数，接收两个参数，reduce()把计算的结果继续与下一个元素做累积计算
+/*var arr2 = [1, 3, 5, 7, 9];
+//求和
+console.log(arr2.reduce(function (x, y) {
+    return x + y;
+}));  //25
+//求积
+console.log(arr2.reduce(function (x, y) {
+    return x * y;
+}));   //945
+
+//把数组[1,3,5,7,9]转成13579
+var arr3 = [1,3,5,7,9];
+console.log(arr3.reduce(function(x,y){
+    return x*10 + y;
+}));   //13579*/
+
+//把字符串'123456'转换成数字123456
+/*var str = '123456';
+var arr = str.split('');  //['1','2']
+var arr1 = arr.map(Number);
+console.log(arr1.reduce(function(x,y){
+    return x*10 + y;
+}));    //123456*/
+
+//练习用户输入不规范['adam', 'LISA', 'barT']，转换成['Adam', 'Lisa', 'Bart']
+/*var arr1 = ['adam', 'LISA', 'barT'];
+var arr2 = arr1.map(function(x){
+    return x.toUpperCase();
+});
+var arr3 = arr2.map(function(x){
+    return x.substring(0,1) + x.substring(1).toLowerCase();
+});
+console.log(arr3);  //["Adam", "Lisa", "Bart"]*/
+
+//把字符串数组['1','2','3']转换成[1,2,3]
+var arr = ['1','2','3'];
+var arr1 = arr.map(function(x){
+    return Number(x);
+});
+console.log(arr1);    //[1, 2, 3]
+
+//也可以这么写，但是会有问题
+var arr2 = arr.map(function(x){
+    return parseInt(x);
+});
+console.log(arr2);    //[1, 2, 3]
+console.log(arr.map(parseInt));  //此时输出[1, NaN, NaN]
+//与parseInt()接收的参数有关
