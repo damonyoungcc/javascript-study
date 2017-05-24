@@ -3,10 +3,10 @@
 
 //1.1 --练习，在一个数组中只保留偶数，删除奇数
 var arr = [1,2,3,4,5,6,7,8];
-function foo(x){
+function foo5(x){
     return x%2 ===0;
 }
-console.log(arr.filter(foo));  //[2, 4, 6, 8]
+console.log(arr.filter(foo5));  //[2, 4, 6, 8]
 
 //1.2 --练习，把一个数组中的空字符串删掉
 var arr = ['A','B','',undefined,false,null];
@@ -72,7 +72,7 @@ console.log(foo3([1,3,5,7,9])());  //返回执行的结果
 //注意一点：调用函数foo3()时，每次返回的函数sum()都是一个新的函数，即使传入的是相同的参数
 
 //2.2 --继续闭包
-function createFunctions() {
+/*function createFunctions() {
     var arr = new Array();
     for (var i = 0; i < 5; i++) {
         arr[i] = function () {
@@ -90,7 +90,7 @@ var f3 = result[2];
 //就会去找保存的内部局部变量i，此时循环已经结束，i的值为5
 console.log(f1())    //5
 console.log(f2());    //5
-console.log(f3());    //5
+console.log(f3());    //5*/
 
 //如果想正常返回，就要对函数进行改写
 function createFunctions() {
