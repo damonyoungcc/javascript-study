@@ -33,3 +33,7 @@ location.assign();
 location.reload();
 
 //-1.4 --document对象
+//html在浏览器中以DOM形式表示为树形结构，document对象就是整个树形结构的额根节点
+//document的title属性是HTML文档中的<title>XXX</title>读取的，但可以动态改变
+'use strict';
+document.title = '努力学习Javascript';
