@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>图片轮播</title>
     <link rel="stylesheet" href="banner.css"/>
-    <script src="jquery-3.2.1.slim.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
     <script src="banner.js"></script>
     <style>
         
@@ -15,22 +15,24 @@
 <body>
     <div class="carousel">
         <ul class="img-ct">
-            <li><a href=""><img src="./image/num1.jpg" alt=""></a></li>
-            <li><a href=""><img src="./image/num2.jpg" alt=""></a></li>
-            <li><a href=""><img src="./image/num3.jpg" alt=""></a></li>
-            <li><a href=""><img src="./image/num4.jpg" alt=""></a></li>
+            <li data-index=0><a href=""><img src="./image/num1.jpg" alt=""></a></li>
+            <li data-index=1><a href=""><img src="./image/num2.jpg" alt=""></a></li>
+            <li data-index=2><a href=""><img src="./image/num3.jpg" alt=""></a></li>
+            <li data-index=3><a href=""><img src="./image/num4.jpg" alt=""></a></li>
         </ul>
 
-        <a class="btn btn-pre" href="">&lt;</a>
-        <a class="btn btn-next" href="">&gt;</a>
+        <a class="btn btn-pre" href="#">&lt;</a>
+        <a class="btn btn-next" href="#">&gt;</a>
 
-        <ul class="bullet">
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-
+        <!--//外层设置绝对定位，text-align：center-->
+        <div class="bullet-ct">
+            <ul class="bullet">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 </body>
 

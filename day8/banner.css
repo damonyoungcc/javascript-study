@@ -5,18 +5,27 @@ ul,li{
 }
 .carousel{
     position: relative;
-    width: 366px;
+    height: 230px;
+    width: 300px;
+    overflow: hidden;
 }
 .carousel .img-ct{
-    position: relative;
-    height: 266px;
-}
-.carousel .img-ct>li{
     position: absolute;
+    height: 230px;
+    width: 1200px;
+}
+.carousel .img-ct:after{ 
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.carousel .img-ct>li{
+    float: left;
 }
 .carousel .img-ct img{
-    width: 366px;
-    height: 266px;
+    width: 300px;
+    height: 230px;
 }
 .carousel .btn{
     position: absolute;
@@ -40,21 +49,30 @@ ul,li{
 .carousel .btn-next{
     right: 10px;
 }
-.carousel .bullet{
+.carousel .bullet-ct{
     position: absolute;
-    left: 50%;
-    margin-left: -60px;
-    bottom: 2opx;
-    border: 1px solid red;
-} 
-.carousel .bullet:after{
-    content: '.';
-    display: block;
-    clear: both;
+    bottom: 20px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
 }
 
+.carousel .bullet {
+/*    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    bottom: 20px;*/
+    display: inline-block;
+} 
+/*.carousel .bullet::after{
+    content: '.';
+    display: none;
+    clear: both;
+}*/
+
 .carousel .bullet>li{
-    float: left;
+   /* float: left;*/
+   display: inline-block;
     width: 20px;
     height: 6px;
     border-radius: 3px;
