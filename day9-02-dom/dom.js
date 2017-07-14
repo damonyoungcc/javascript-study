@@ -1,0 +1,1 @@
+alert('窗口大小是：' + window.innerWidth + 'x' + window.innerHeight);
