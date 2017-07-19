@@ -30,12 +30,67 @@ var app8 = new Vue({
     }
 })
 
-
+//绑定class属性
 var app8_1 = new Vue({
     el:'#app-8-1',
     data:{
         msg:"Hello Msg xxx"
     }
 })
+
+// 可以将class绑定成数据里的一个对象
+var app9 = new Vue({
+    el:'#app-9',
+    data:{
+        classObject:{
+            active:true,
+            'text-danger':true
+        }
+    }
+})
+//绑定返回对象的计算属性
+var app9 = new Vue({
+    el:'#app-10',
+    data:{
+        isActive: true,
+        error: null
+    },
+    computed:{
+        classObject:function(){
+            return{
+                active:this.isActive && !this.error,
+                'text-danger':this.error && this.error.type === false
+            }
+        }
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -57,25 +57,35 @@
         </ol>
     </div>
 
-    <!-- v-once -->
+    <!-- 模板语法 -->
     <span id="app-8">
         Message: {{ msg }}
     </span>
     <br>
+
+    <!-- v-once -->
     <span id = "app-8-1" v-once>
         This will never change: {{ msg }}
     </span>
-
-    <div v-html = "rawhtml"></div>
 
     <!-- 绑定Class -->
     <div class="static" 
         v-bind:class="{active: isActive,'text-danger':hasError}">
     </div>
 
+    <!-- 可以将class绑定成数据里的一个对象 -->
+    <div id="app-9">
+        <div v-bind:class="classObject">
+            这是一个用v-bind绑定数据里的对象的示例
+        </div>
+    </div>
 
-
-
+    <!-- 绑定返回对象的计算属性 -->
+    <div id="app-10">
+        <div v-bind:class="classObject">
+            这是一个用v-bind绑定数据里的对象的示例
+        </div>
+    </div>
 
 
     <script src="./vue/vue.js"></script>
