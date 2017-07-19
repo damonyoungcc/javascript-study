@@ -14,4 +14,3 @@
  //getElementsByClassName 
  //querySelector/All
  var users = document.querySelector('#users')     //一旦获取就不会变，不是动态改变的
-
