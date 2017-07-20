@@ -42,17 +42,13 @@
     <!-- v-module -->
     <div id="app-6">
         <p>{{ message }}</p>
-        <input v-model = "message" type="text">
+        <input v-model="message" type="text">
     </div>
 
     <!-- 组件 -->
     <div id="app-7">
         <ol>
-            <todo-item
-                v-for = "item in groceryList"
-                v-bind:todo = "item"
-                v-bind:key = "item.id"
-            >
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
             </todo-item>
         </ol>
     </div>
@@ -64,13 +60,12 @@
     <br>
 
     <!-- v-once -->
-    <span id = "app-8-1" v-once>
+    <span id="app-8-1" v-once>
         This will never change: {{ msg }}
     </span>
 
     <!-- 绑定Class -->
-    <div class="static" 
-        v-bind:class="{active: isActive,'text-danger':hasError}">
+    <div class="static" v-bind:class="{active: isActive,'text-danger':hasError}">
     </div>
 
     <!-- 可以将class绑定成数据里的一个对象 -->
@@ -86,6 +81,51 @@
             这是一个用v-bind绑定数据里的对象的示例
         </div>
     </div>
+
+    <!-- v-bind绑定一个数组 -->
+    <div id="app-11">
+        <div v-bind:class="[activeClass,errorClass]">
+            v-bind绑定一个数组
+        </div>
+    </div>
+
+    <div id="app-12">
+        <div v-bind:style="styleObject">
+            v-bind绑定一个数组
+        </div>
+    </div>
+
+
+    <!-- v-for -->
+    <ul id="app-13">
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+
+    <!-- 组件中data必须是函数 -->
+    <div id="example-2">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+
+    <!-- 组件传递数据的动态prop -->
+    <div id="example-3">
+        <child message = "hello"></child>
+    </div>
+
+
+   <!-- 动态绑定prop -->
+    <div id="example-4">
+        <input v-model = "parentMsg">
+        <br>
+        <child v-bind:my-message="parentMsg"></child>
+    </div>
+
+    <input v-model = "message" placeholder="edit me">
+    <p>Message is:{{message}}</p>
+
 
 
     <script src="./vue/vue.js"></script>

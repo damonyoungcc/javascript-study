@@ -59,25 +59,73 @@ var app9 = new Vue({
         classObject:function(){
             return{
                 active:this.isActive && !this.error,
-                'text-danger':this.error && this.error.type === false
+                'text-danger':!this.error
             }
         }
     }
 })
 
+//绑定class是一个数组
+var app11 = new Vue({
+    el:'#app-11',
+    data:{
+        activeClass:'active',
+        errorClass:'text-danger'
+    }
+})
 
+//绑定
+var app12 = new Vue({
+    el:"#app-12",
+    data:{
+        styleObject:{
+            color:'red',
+            fontSize:'30px'
+        }
+    }
+})
 
+var example1 = new Vue({
+  el: '#app-13',
+  data: {
+    items: [
+      {message: 'Foo' },
+      {message: 'Bar' }
+    ]
+  }
+})
 
+//注册组件时，必须把data的值变成一个函数，此示例是将data
+Vue.component('simple-counter',{
+    template:'<button v-on:click="counter += 1">{{counter}}</button>',
+    data:function(){
+        return {
+            counter:0
+        }
+    }
+})
 
+new Vue({
+    el:'#example-2'
+})
+//动态prop
+/* Vue.component('child',{
+    template:'<span>{{message}}</span>',
+    props:['message']
+})
 
+new Vue({
+    el:'#example-3',
+}) */
 
+Vue.component('child',{
+    template:'<span>{{my-message}}</span>',
+    props:['my-message']
+})
 
-
-
-
-
-
-
+new Vue({
+    el:'#example-4',
+})
 
 
 
