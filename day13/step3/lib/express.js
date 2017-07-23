@@ -58,14 +58,6 @@ module.exports = express
 
 
 
-
-
-
-
-
-
-
-
 function makeQuery(req){
   var pathObj = url.parse(req.url, true)
   req.query = pathObj.query
