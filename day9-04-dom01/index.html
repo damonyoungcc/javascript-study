@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" value="按钮0" id="btn0">
+        <a href="index1.html" id="go">点我跳转</a>
+    </div>
+</body>
+
+<script>
+    function showMsg(event) {
+        alert(event.target.nodeName);
+        event.stopPropagation();
+    }
+    function showBox(){
+        alert('这是一个放按钮的盒子');
+    }
+    function stopGoto(event){
+        event.stopPropagation();
+        event.preventDefault();
+    }
+
+
+    var EventUtil = {
+        addEvent: function (element, type, fn) {
+            if (element.addEventListener) {
+                element.addEventListener(type, fn, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + type, fn);
+            } else { 
+                element['on' + type] = fn;
+            }
+        },
+
+        removeEvent: function (element, type, fn) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, fn, false);
+            } else if (element.detachEvent) {
+                element.detachEvent('on' + type, fn);
+            } else { 
+                element['on' + type] = null;
+            }
+        }
+    }
+    var btn0 = document.getElementById('btn0');
+    var box = document.getElementById('box');
+    var g0 = document.getElementById('id');
+
+    EventUtil.addEvent(btn0, 'click', showMsg);
+    EventUtil.addEvent(box,'click',showBox);
+    EventUtil.addEvent(go,'click',stopGoto); 
+</script>
+
+</html>
