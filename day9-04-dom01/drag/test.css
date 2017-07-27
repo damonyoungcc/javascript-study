@@ -1,0 +1,40 @@
+.loginPanel{
+    width: 380px;
+    height:247px;
+    position: absolute;
+    top: 120px;
+    left:50%;
+    margin-left: -190px;
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #000;
+}
+
+/* 点击区域 */
+.ui_boxyClose{
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+    background: url('./images/boxy_btn.png') no-repeat;
+    z-index: 1;
+}
+.login_logo_webqq{
+    background: url('./images/login_window_logo.png') no-repeat -210px -0px;
+    margin-left: 100px;
+    margin-top: 10px;
+    width: 200px;
+    height: 44px;
+    cursor: move;
+}
+.inputs{
+    font: bold 15px arial;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.inputs .sign-input{
+    padding-bottom: 20px;
+}

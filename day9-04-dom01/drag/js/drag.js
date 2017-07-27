@@ -5,6 +5,9 @@
  * @param {*} parent 可选参数，传入父元素就在父元素下找所有的className
  */
 function getByClass(clsName, parent) {
+    if(document.getElementsByClassName){
+        return document.getElementsByClassName(clsName);
+    }
     var oParent = parent ? document.getElementById(parent) : document,
         eles = [],
         elements = oParent.getElementsByTagName('*');
