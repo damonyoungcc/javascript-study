@@ -1,0 +1,23 @@
+/*
+    第三种解决方案：position:  relative  +  position: absolute + left:50% + transform:translateX(-50%);
+    3333333333333333333333333333333333333333333333333333
+*/
+/*绝对定位脱离文档流，设置后子元素宽度随内容宽度*/
+
+/*
+    优点是子元素是脱离文档流的，不会对父元素中的内容造成影响
+    缺点是transform是css3的特性，兼容性不够。
+*/
+
+.parent{
+    height: 200px;
+    background-color: gray;
+    position: relative;
+}
+.child{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 200px;
+    background-color: greenyellow;
+}

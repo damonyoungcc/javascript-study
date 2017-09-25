@@ -1,0 +1,20 @@
+/* 居中布局 */
+
+/* 第一个方案：inline-block + text-align实现居中布局 */
+/*  111111111111111111111111111111111111111111111111111  */
+.parent{
+    height: 200px;
+    background-color: gray;
+    /* text-align对inline元素起作用 */
+    text-align: center;
+}
+.child{
+    background-color: yellowgreen;
+    height: 200px;
+    width: 200px;
+    /* inline-block宽度根据内容来 */
+    display: inline-block;
+
+    /* 如果是需要里面内容不居中，则可以再子元素里设置text-align还原掉父元素的设置 */
+    /* text-align: left; */
+}

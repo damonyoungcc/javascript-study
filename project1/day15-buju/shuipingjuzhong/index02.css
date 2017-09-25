@@ -1,0 +1,23 @@
+/*
+    第二个居中方案：
+    display:table + margin:0 auto
+    222222222222222222222222222222222222222
+
+    优点是：不用设置父元素
+*/
+
+.parent{
+    height: 200px;
+    background-color: gray;
+}
+
+/*display:table
+在表现形式上很像是block元素
+宽度跟着内容走。
+*/
+.child{
+    display: table;
+    margin: 0 auto;
+    background-color: greenyellow;
+    height: 200px;
+}

@@ -1,0 +1,39 @@
+.write-form{
+    margin: 100px;
+}
+input[disabled]{
+    background-color:gainsboro;
+    /* padding: 0 20px; */
+    padding-left: 10px;
+}
+input[type=password]{
+    background-color: rosybrown;
+    padding-left: 10px;
+}
+[class~=sports]{
+    color: blue;
+}
+
+.sports{
+    color: red;
+}
+.yundong{
+    color: green;
+}
+.add-link:link{
+    color: yellow;
+}
+.add-link:hover{
+    color: blue;
+}
+.add-link:active{
+    color: red;
+}
+
+.bg-test{
+    background-image: url(advisor-icon.png);
+    background-color: gray;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 150px;
+}
