@@ -1,0 +1,9 @@
+.parent{
+    height: 300px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+}
+.child{
+    background-color: greenyellow;
+}

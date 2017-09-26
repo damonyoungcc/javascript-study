@@ -1,0 +1,13 @@
+.parent{
+    height: 300px;
+    background-color: gray;
+    position: relative;
+}
+.child{
+    height: 200px;
+    line-height: 200px;
+    background-color: greenyellow;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

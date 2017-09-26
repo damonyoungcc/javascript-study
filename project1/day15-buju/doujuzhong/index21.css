@@ -1,0 +1,16 @@
+.parent{
+    text-align: center;
+    background-color: gray;
+    height: 300px;
+    width: 500px;
+    /* 设置垂直居中 */
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.child{
+    display: inline-block;
+    background-color: greenyellow;
+    height: 150px;
+    line-height: 150px;
+}

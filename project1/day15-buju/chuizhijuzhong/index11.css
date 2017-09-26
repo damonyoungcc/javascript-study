@@ -1,0 +1,12 @@
+.parent {
+    background-color: gray;
+    height: 300px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.child {
+    background-color: greenyellow;
+    height: 200px;
+    line-height: 200px;
+}
